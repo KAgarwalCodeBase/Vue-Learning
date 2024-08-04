@@ -1,3 +1,16 @@
+
+<h3>Notes:</h3>
+
+Write HTML is done inside the ```<template>...</template> ```tag.<br>
+Write CSS is done inside the ```<style>...</style>``` tag.<br>
+Write JS is done inside the``` <script>...</script>``` tag.<br>
+Structure of component should be in js->html->css.
+<h3>Standard Practices</h3>
+Component name should be multiname.
+
+Example: "HelloWorld.vue"
+
+
 <h3>Command to do new Project Setup</h3>
 
 <i>npm create vue@latest</i> </br>
@@ -15,7 +28,6 @@ Attribute Binding & Dynamic Attribute Binding  :attr or v-bind:attr -
     It is a way to bind HTML attributes to data in Vue Instance.
     
 example:
-
 <code>
 
     <script setup>
@@ -33,3 +45,33 @@ example:
     </template>
 
 </code>
+
+Vue Style: 
+
+Global Style: ```<style>...</style>```
+
+Local Style: ```<style scoped>...</style>```
+
+Module Style: ```<style module>...<style>```
+Example:
+```
+<template>
+<h1 v-bind:class="$style['m-class']"> This is module example.</h1>
+
+<h1 :class="$style.anotherClass"> This is another module example.</h1>
+</template>
+
+<style module>
+/*Kebab style */
+.m-class {
+    background: firebrick;
+    color: white;
+}
+
+/*for camel case style*/
+.anotherClass {
+    background: green;
+    color: white;
+}
+</style>
+```
