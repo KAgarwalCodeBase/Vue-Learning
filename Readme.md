@@ -1,5 +1,7 @@
 Component - Building blocks of Single Page Applications.
+
 Interpolation {{ }} - Dynamically Binding Data to the content of an HTML element.
+
 Attribute Binding & Dynamic Attribute Binding  :attr or v-bind:attr - 
     It is a way to bind HTML attributes to data in Vue Instance.
     
