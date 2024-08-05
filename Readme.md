@@ -77,3 +77,52 @@ Example:
 }
 </style>
 ```
+
+### Events:
+Two ways of using events:<br>
+- ```v-on:click="count++"<br>```
+- ```@:click="count++"```
+
+Example:
+```
+<script setup>
+import {ref} from 'vue';
+
+let count = ref(0)
+console.log('Count: ', count);
+
+</script>
+
+<template>
+  <h1>Count: {{count}}</h1>
+  <button v-on:click="count++">Increement</button>
+  <button @:click="count--">Decreement</button>
+</template>
+
+```
+
+### Reactivity:
+
+Reactivity means that the framework can automatically update (UI) when the information behind it changes. It's a core concept that allow you to create dynamic and responsive applications without manually manipulating the DOM.
+
+#### Reactive State:
+- reactive()
+    - The reactive function is used to create a reactive objects. A reactive object is an object where changes to its properties are automatically detected, triggering updates in the user interface. It is a way to make an object "reactive" in Vue.js.
+
+    - Cannot Store primitive data types.
+- ref()
+    - ref() is used to create a reactive reference to a value. Unlike the reactive function, which is used for creating reactive objects, ref is specifically designed for creating reactive single values.
+
+    -  You can store any value you want.
+
+#### Reactive System:
+<i>ref in Vue 3 returns an object with a value property to enable Vue's reactivity system to track changes and update the DOM efficiently.</i>
+
+#### Accessing ref Values:
+<i>Use .value to read or write the value of a ref object. This ensures you are accessing the actual data.</i>
+
+#### Direct Mutation with Increment/Decrement:
+<i>Using count++ or count-- works because of JavaScript's ability to coerce objects during arithmetic operations. However, it's not the recommended approach.</i>
+
+#### Best Practices:
+<i>Always use .value for clarity, consistency, and alignment with Vue's documentation. This helps prevent confusion and makes your code more maintainable.</i>
