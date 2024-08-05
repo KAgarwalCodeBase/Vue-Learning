@@ -175,3 +175,72 @@ Reactivity means that the framework can automatically update (UI) when the infor
 
 #### Best Practices:
 <i>Always use .value for clarity, consistency, and alignment with Vue's documentation. This helps prevent confusion and makes your code more maintainable.</i>
+
+### Computed Properties
+A computed property is a special kind of variable that automatically updates itself whenever the data it depends on changes.
+
+It's like a little worker that watches certain data, performs some work on it, and always give you most up-to-date result.
+```
+<script setup>
+    import { ref, computed } from 'vue';
+    let count = ref(0);
+    let square = computed(()=>{return count.value**2;})
+</script>
+
+<template>
+    <h1>Count : {{count}}</h1>
+    <h1>Square: {{square}}</h1>
+    <button @:click="count++">Increment</button>
+</template>
+```
+
+### Conditional Rendering
+Conditional rendering is refers to the ability to conditionally display or hide elements in the user interface based on certain condition or expressions.
+
+-   v-if (condition)
+-   v-else-if (condition)
+-   v-else
+
+```
+<script setup>
+    let isAuthorized = false
+    let userInfo = {
+        name: "Super Man",
+        profession: "Super Hero",
+        age: "50",
+        address: "DC Universe"
+    }
+</script>
+
+<template>
+    <h1>User Info:</h1>
+    <h1>Name: {{userInfo.name}}</h1>
+    <h1>Profession: {{userInfo.profession}}</h1>
+    <div v-if="isAuthorized">
+        <h1>Age: {{userInfo.age}}</h1>
+        <h1>Address: {{userInfo.address}}</h1>
+    </div>
+    <div v-else> 
+        <h1>Do Login to see complete info.</h1>
+    </div>
+</template>
+```
+#### v-show
+v-show directive is used for conditional rendering. It toggles the visibility of an element based on the truthiness of the provided expression. Unlike v-if, which completely adds or removes the element from the DOM, v-show toggles the CSS display property of the element to control its visibility while keeping it in the DOM.
+
+```
+<script setup>
+    import { ref } from 'vue';
+    let isVisible = ref(true);
+</script>
+
+<template>
+    <h1>User Profile:</h1>
+    <h2 v-show="isVisible">Name: Kaushal Agarwal</h2>
+    <h2 v-show="isVisible">Age: 27</h2>
+    <button @:click="isVisible = !isVisible">Hide Details</button>
+</template>
+```
+#### Note: 
+- v-show only toggle the visibility.
+- Other conditional rendering remove it from DOM.
