@@ -110,10 +110,59 @@ Reactivity means that the framework can automatically update (UI) when the infor
     - The reactive function is used to create a reactive objects. A reactive object is an object where changes to its properties are automatically detected, triggering updates in the user interface. It is a way to make an object "reactive" in Vue.js.
 
     - Cannot Store primitive data types.
+```
+<script setup>
+    import { reactive } from 'vue';
+
+    let initialState = reactive({val: {count: 0}, user: ["Super", "Man"]})
+    let changeUser = ()=> {
+        initialState.user[0] = "Wondar",
+        initialState.user[1] = "Women"
+    }
+</script>
+
+<template>
+    <h1> Current Count: {{initialState.val.count}}</h1>
+    <h1>Users:  {{initialState.user}}</h1>
+    <button @:click="initialState.val.count+=10">Add 10</button>
+    <button @:click="initialState.val.count-=10">Substract 10</button>
+    <button @:click="changeUser"> Change User </button>
+    <button @:click="initialState.user.push('Super Man')">Add User</button>
+</template>
+
+```
 - ref()
     - ref() is used to create a reactive reference to a value. Unlike the reactive function, which is used for creating reactive objects, ref is specifically designed for creating reactive single values.
 
     -  You can store any value you want.
+```
+<script setup>
+    import { ref } from 'vue';
+    // using ref for primitive value.
+    let username = ref('');
+    // using ref for arrays.
+    let userList = ref(['Michel', 'Jordan', 'Super', 'Man'])
+    // using ref for objects.
+    let userInfo = ref({
+        name: 'Salman Khan',
+        profession: 'actor',
+        age: 50,
+        isMarried: false
+    })
+</script>
+
+<template>
+    <h1>Username : {{username}}</h1>
+    <button @:click="username='Jordan'"> Add Username</button>
+    <h1>UserList: {{userList}}</h1>
+    <button @:click="userList.push('Batman')">Add User</button>
+    <h1>Name: {{userInfo.name}}</h1>
+    <h1>Age: {{userInfo.age}}</h1>
+    <h1>IsMarries: {{userInfo.isMarried}}</h1>
+    <h1>Profession: {{userInfo.profession}}</h1>
+    <button @:click="userInfo.name='Amitab Bachan'">Change name</button>
+</template>
+```
 
 #### Reactive System:
 <i>ref in Vue 3 returns an object with a value property to enable Vue's reactivity system to track changes and update the DOM efficiently.</i>
