@@ -322,3 +322,87 @@ Two-way binding means that changes in your code automatically update what you se
     <h1>{{formData.password}}</h1>
 </template>
 ```
+
+## Props
+
+"props" (short for properties) are a way to pass data from a parent component to a child component Props allow you to communicate between components by allowing the parent component to pass data down to its child components. This is useful for creating reusable and modular components.
+
+Props are readonly. There value cann't be change i.e. immutable.
+
+#### Static Props Example
+```
+<script setup>
+    let props = defineProps(['name'])
+</script>
+
+<template>
+    <h2>Name: {{props.name}}</h2>
+</template>
+```
+
+#### Dynamic Porps Example
+```
+<script setup>
+    let props = defineProps(['counter'])
+    // Props are "immutable" that means there value cannot be changed
+    // They are just readonly.
+    // props.counter=10; //It does not work it will give a warning at console.
+</script>
+
+<template>
+    <h2>Counter: {{counter}}</h2>
+</template>
+```
+
+#### Props Validation Example
+```
+<script setup>
+    let props = defineProps({
+        fullname: String,
+        age: Number
+    })
+</script>
+
+<template>
+    <h2>Fullname: {{props.fullname}}</h2>
+    <h2>Age: {{props.age}}</h2>
+</template>
+```
+
+#### Complex Props Validation Example
+```
+<script setup>
+    defineProps({
+        fullname:{
+            type:String,
+            required:true
+        },
+        age:{
+            type:Number,
+            required:false
+        }
+    })
+</script>
+
+<template>
+    <h2>Fullname: {{fullname}}</h2>
+    <h2>Age: {{age}}</h2>
+</template>
+```
+
+#### Complex Object Props Example
+```
+<script setup>
+    defineProps({
+        book:Object,
+        petNames:Array
+    })
+</script>
+
+<template>
+    <h2>Book Details:</h2>
+    <li v-for="(c, i) in book" :key="i">{{c}}</li>
+    <h2>Pet Names:</h2>
+    <li v-for="(c,i) in petNames" :key="i">{{c}}</li>
+</template>
+```
