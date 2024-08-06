@@ -5,6 +5,7 @@ import DynamicPropsExample from './components/DynamicPropsExample.vue';
 import PropsValidationExample from './components/PropsValidationExample.vue';
 import ComplexPropsValidationExample from './components/ComplexPropsValidationExample.vue';
 import ComplexObjectInPropsExample from './components/ComplexObjectInPropsExample.vue';
+import CustomValidatorPropsExample from './components/CustomValidatorPropsExample.vue';
 let book = {
         "title": "To Kill a Mockingbird",
         "author": "Harper Lee",
@@ -39,6 +40,6 @@ let userInfo = {fullname:"Kaushal Agarwal", age: 27};
 <h1>Complex Objects In Props Example.</h1>
 <ComplexObjectInPropsExample :book="book" :petNames="petNames"/>
 <hr>
-
+<CustomValidatorPropsExample name="IronMan" age=27 password="impossiblePassword"/>
 </template>
 
