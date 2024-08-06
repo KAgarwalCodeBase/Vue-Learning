@@ -244,3 +244,52 @@ v-show directive is used for conditional rendering. It toggles the visibility of
 #### Note: 
 - v-show only toggle the visibility.
 - Other conditional rendering remove it from DOM.
+
+
+### v-for
+The v-for directive is used to iterate over an array or an object an render a template for each item in the collection.
+
+```
+<script setup>
+    let books = [
+        {
+            "title": "To Kill a Mockingbird",
+            "author": "Harper Lee",
+            "year": 1960,
+            "genre": "Fiction",
+            "ISBN": "978-0061120084"
+        },
+        {
+            "title": "1984",
+            "author": "George Orwell",
+            "year": 1949,
+            "genre": "Dystopian",
+            "ISBN": "978-0451524935"
+        }
+    ]
+</script>
+<template>
+    <h1>This is an iteration example.</h1>
+    <div v-for="({title, author, year, genre, ISBN}, i) in books" :key="index">
+        <h3>Title: {{ title }}</h3>
+        <h3>Author: {{ author }}</h3>
+        <h3>Year: {{ year }}</h3>
+        <h3>Genre: {{ genre }}</h3>
+        <h3>ISBN: {{ ISBN }}</h3>
+        <hr>
+    </div>
+</template>
+```
+
+#### Efficient DOM Updates
+Why :key?
+
+• When Vue renders a list of elements, it uses a virtual DOM to determine the most efficient way to update the actual DOM. The key helps Vue identify which elements have changed, been added, or been removed.
+
+• Without keys, Vue may need to recreate the entire DOM structure for each update, which can be less efficient.
+
+#### Avoiding Common Pitfalls
+
+• Using key can help avoid common pitfalls, such as duplicate key warnings in the console or incorrect rendering when items are rearranged in the list.
+
+• Vue relies on keys to track the identity of elements, and using unique keys for each item ensures that Vue can accurately update the DOM based on changes in the list.
