@@ -1,5 +1,5 @@
 
-<h3>Notes:</h3>
+## Notes:
 
 Write HTML is done inside the ```<template>...</template> ```tag.<br>
 Write CSS is done inside the ```<style>...</style>``` tag.<br>
@@ -20,13 +20,13 @@ Example: "HelloWorld.vue"
 <i>npm run format</i></br>
 <i>npm run dev</i></br>
 
-### Component:
+## Component:
  Building blocks of Single Page Applications.
 
-### Interpolation {{ }}:
+## Interpolation {{ }}:
 Dynamically Binding Data to the content of an HTML element.
 
-### Attribute Binding & Dynamic Attribute Binding  :attr or v-bind:attr:
+## Attribute Binding & Dynamic Attribute Binding  :attr or v-bind:attr:
 It is a way to bind HTML attributes to data in Vue Instance.
     
 example:
@@ -48,7 +48,7 @@ example:
 
 </code>
 
-### Vue Style: 
+## Vue Style: 
 
 Global Style: ```<style>...</style>```
 
@@ -78,7 +78,7 @@ Example:
 </style>
 ```
 
-### Events:
+## Events:
 Two ways of using events:<br>
 - ```v-on:click="count++"<br>```
 - ```@:click="count++"```
@@ -101,7 +101,7 @@ console.log('Count: ', count);
 
 ```
 
-### Reactivity:
+## Reactivity:
 
 Reactivity means that the framework can automatically update (UI) when the information behind it changes. It's a core concept that allow you to create dynamic and responsive applications without manually manipulating the DOM.
 
@@ -176,7 +176,7 @@ Reactivity means that the framework can automatically update (UI) when the infor
 #### Best Practices:
 <i>Always use .value for clarity, consistency, and alignment with Vue's documentation. This helps prevent confusion and makes your code more maintainable.</i>
 
-### Computed Properties
+## Computed Properties
 A computed property is a special kind of variable that automatically updates itself whenever the data it depends on changes.
 
 It's like a little worker that watches certain data, performs some work on it, and always give you most up-to-date result.
@@ -194,7 +194,7 @@ It's like a little worker that watches certain data, performs some work on it, a
 </template>
 ```
 
-### Conditional Rendering
+## Conditional Rendering
 Conditional rendering is refers to the ability to conditionally display or hide elements in the user interface based on certain condition or expressions.
 
 -   v-if (condition)
@@ -293,3 +293,32 @@ Why :key?
 • Using key can help avoid common pitfalls, such as duplicate key warnings in the console or incorrect rendering when items are rearranged in the list.
 
 • Vue relies on keys to track the identity of elements, and using unique keys for each item ensures that Vue can accurately update the DOM based on changes in the list.
+
+## v-model
+v-model is a directive that provides two-way data binding on an input, textarea, or select element. It creates a connection between the data in your component and the input field, allowing changes in one to automatically update the other and vice versa.
+
+#### Two Way Binding?
+Two-way binding means that changes in your code automatically update what you see on the screen, and vice versa. It's like a live connection between your data and the user interface, making it easy to keep them in sync without writing a lot of extra code.
+
+```
+<script setup>
+    import { ref } from 'vue';
+    let formData = ref({
+        username: '',
+        email: '',
+        password:''
+    })
+</script>
+
+<template>
+    <form @submit.prevent>
+        <input type="text" placeholder="Please enter your username." v-model="formData.username"><br/><br/>
+        <input type="email" placeholder="Please enter your email." v-model="formData.email"><br/><br/>
+        <input type="password" placeholder="Please enter your password." v-model="formData.password"><br/><br/>
+        <button type="submit">Submit</button>
+    </form>
+    <h1>{{formData.username}}</h1>
+    <h1>{{formData.email}}</h1>
+    <h1>{{formData.password}}</h1>
+</template>
+```
