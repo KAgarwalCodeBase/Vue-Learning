@@ -434,3 +434,49 @@ Props are readonly. There value cann't be change i.e. immutable.
     <h2>{{password}}</h2>
 </template>
 ```
+
+
+## Component Event
+Component events are a way for child components to communicate with their parent components. They allow child components to emit events (custom events) that can be listened to and handled by their parent components.
+
+#### Child Component Emits an Event
+Inside a child component, you can use the $emit method to trigger a custom event. This event can carry data that you want to send to the parent.
+
+#### Parent Component Listens to the Event
+
+In the parent component's template, you can use the v-on directive (or the shorthand @) to listen for the custom event emitted by the child.
+
+<i>App.vue (Parent Component)</i>
+```
+<script setup>
+  import FormComponent from './components/FormComponent.vue';
+  const formHandler = (userInfo)=>{
+    console.log(userInfo);
+  }
+</script>
+
+<template>
+  <FormComponent @getUserInfo="formHandler"/>
+</template>
+```
+
+<i>FormComponent.vue (Child Component)</i>
+```
+<script setup>
+    import { ref } from 'vue'; 
+    let userInfo = ref({
+        username:"",
+        email:"",
+        password:""
+    })
+</script>
+
+<template>
+    <form @submit.prevent="$emit('getUserInfo',userInfo)" >
+        <input type="text" placeholder="username" v-model="userInfo.username"> <br>
+        <input type="email" placeholder="email" v-model="userInfo.email"><br>
+        <input type="password" placeholder="password" v-model="userInfo.password">
+        <button @click="submit">Submit</button>
+    </form>
+</template>
+```
