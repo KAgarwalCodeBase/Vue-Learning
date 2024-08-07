@@ -406,6 +406,7 @@ Props are readonly. There value cann't be change i.e. immutable.
     <li v-for="(c,i) in petNames" :key="i">{{c}}</li>
 </template>
 ```
+
 #### Custom Validation Props Example
 ```
 <script setup>
