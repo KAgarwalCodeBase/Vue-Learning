@@ -480,3 +480,118 @@ In the parent component's template, you can use the v-on directive (or the short
     </form>
 </template>
 ```
+
+## Slot
+A slot is like a space in a component where you can put different things. It allow you to create reusable components that can accept different content while maintaining a consistent structure.
+
+App.vue
+```
+<script setup>
+  import SlotComponent from './components/SlotComponent.vue';
+</script>
+
+<template>
+  <SlotComponent>
+    <h1>Content 1</h1>
+    <h2>Content 2</h2>
+  </SlotComponent>
+</template>
+```
+
+SlotComponent.vue
+```
+<script setup></script>
+<template>
+    <slot></slot>
+</template>
+```
+#### Fallback / Default Content
+Fallback content in slots refers to the default content that is displayed when no content is provided for a particular slot. It's a way to ensure that a component still has meaningful content, even if the parent component does not pass any content to a specific slot.
+
+App.vue
+```
+<script setup>
+  import FallbackComponent from './components/FallbackComponent.vue';
+</script>
+
+<template>
+  <FallbackComponent>
+
+  </FallbackComponent>
+  <hr>
+  <FallbackComponent>
+    Fallback Content does not work.
+  </FallbackComponent>
+</template>
+```
+
+FallbackComponent.vue
+```
+<script setup></script>
+
+<template>
+    <slot> This is fallback / default content</slot>    
+</template>
+```
+
+#### Named Slots
+A named slot is a way to assign a specific name to a slot in a component. Unlike the default slot, which is unnamed and used when no explicit name is provided. named slots allow you to have multiple slots in a component and specify where the content should be inserted based on the slot's
+name.
+
+App.vue
+```
+<script setup>
+  import NamedSlot from './components/NamedSlot.vue';
+</script>
+
+<template>
+  <h1>NamedSlot Example.</h1>
+  <NamedSlot>
+      <template v-slot:one>
+        <h2>This content go to slot "one".</h2>
+      </template>
+      <template #two>
+        <h2>This content go to slot "two".</h2>
+      </template>
+  </NamedSlot>
+</template>
+```
+NamedSlot.vue
+```
+<script setup></script>
+<template>
+    <slot name="one"></slot>
+    <slot name="two"></slot>
+</template>
+```
+
+#### Default Slot
+A default slot captures all the content that does not have a designated name and renders it at the location where the default <slot> tag is placed within the child component.
+
+App.vue
+```
+<script setup>
+  import DefaultSlot from './components/DefaultSlot.vue';
+</script>
+
+<template>
+  <DefaultSlot>
+    <template #example>
+      <br>
+      This is example slot.
+    </template>
+    <template #default>
+        Default slot always come first.
+      </template>
+  </DefaultSlot>
+</template>
+```
+DefaultSlot.vue
+```
+<script setup>
+</script>
+<template>
+    <slot></slot>
+    <slot name="example"></slot>
+</template>
+```
