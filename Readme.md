@@ -105,7 +105,7 @@ console.log('Count: ', count);
 
 Reactivity means that the framework can automatically update (UI) when the information behind it changes. It's a core concept that allow you to create dynamic and responsive applications without manually manipulating the DOM.
 
-#### Reactive State:
+### Reactive State:
 - reactive()
     - The reactive function is used to create a reactive objects. A reactive object is an object where changes to its properties are automatically detected, triggering updates in the user interface. It is a way to make an object "reactive" in Vue.js.
 
@@ -164,16 +164,16 @@ Reactivity means that the framework can automatically update (UI) when the infor
 </template>
 ```
 
-#### Reactive System:
+### Reactive System:
 <i>ref in Vue 3 returns an object with a value property to enable Vue's reactivity system to track changes and update the DOM efficiently.</i>
 
-#### Accessing ref Values:
+### Accessing ref Values:
 <i>Use .value to read or write the value of a ref object. This ensures you are accessing the actual data.</i>
 
-#### Direct Mutation with Increment/Decrement:
+### Direct Mutation with Increment/Decrement:
 <i>Using count++ or count-- works because of JavaScript's ability to coerce objects during arithmetic operations. However, it's not the recommended approach.</i>
 
-#### Best Practices:
+### Best Practices:
 <i>Always use .value for clarity, consistency, and alignment with Vue's documentation. This helps prevent confusion and makes your code more maintainable.</i>
 
 ## Computed Properties
@@ -225,7 +225,7 @@ Conditional rendering is refers to the ability to conditionally display or hide 
     </div>
 </template>
 ```
-#### v-show
+### v-show
 v-show directive is used for conditional rendering. It toggles the visibility of an element based on the truthiness of the provided expression. Unlike v-if, which completely adds or removes the element from the DOM, v-show toggles the CSS display property of the element to control its visibility while keeping it in the DOM.
 
 ```
@@ -241,7 +241,7 @@ v-show directive is used for conditional rendering. It toggles the visibility of
     <button @:click="isVisible = !isVisible">Hide Details</button>
 </template>
 ```
-#### Note: 
+### Note: 
 - v-show only toggle the visibility.
 - Other conditional rendering remove it from DOM.
 
@@ -281,14 +281,14 @@ The v-for directive is used to iterate over an array or an object an render a te
 </template>
 ```
 
-#### Efficient DOM Updates
+### Efficient DOM Updates
 Why :key?
 
 • When Vue renders a list of elements, it uses a virtual DOM to determine the most efficient way to update the actual DOM. The key helps Vue identify which elements have changed, been added, or been removed.
 
 • Without keys, Vue may need to recreate the entire DOM structure for each update, which can be less efficient.
 
-#### Avoiding Common Pitfalls
+### Avoiding Common Pitfalls
 
 • Using key can help avoid common pitfalls, such as duplicate key warnings in the console or incorrect rendering when items are rearranged in the list.
 
@@ -297,7 +297,7 @@ Why :key?
 ## v-model
 v-model is a directive that provides two-way data binding on an input, textarea, or select element. It creates a connection between the data in your component and the input field, allowing changes in one to automatically update the other and vice versa.
 
-#### Two Way Binding?
+### Two Way Binding?
 Two-way binding means that changes in your code automatically update what you see on the screen, and vice versa. It's like a live connection between your data and the user interface, making it easy to keep them in sync without writing a lot of extra code.
 
 ```
@@ -329,7 +329,7 @@ Two-way binding means that changes in your code automatically update what you se
 
 Props are readonly. There value cann't be change i.e. immutable.
 
-#### Static Props Example
+### Static Props Example
 ```
 <script setup>
     let props = defineProps(['name'])
@@ -340,7 +340,7 @@ Props are readonly. There value cann't be change i.e. immutable.
 </template>
 ```
 
-#### Dynamic Porps Example
+### Dynamic Porps Example
 ```
 <script setup>
     let props = defineProps(['counter'])
@@ -354,7 +354,7 @@ Props are readonly. There value cann't be change i.e. immutable.
 </template>
 ```
 
-#### Props Validation Example
+### Props Validation Example
 ```
 <script setup>
     let props = defineProps({
@@ -369,7 +369,7 @@ Props are readonly. There value cann't be change i.e. immutable.
 </template>
 ```
 
-#### Complex Props Validation Example
+### Complex Props Validation Example
 ```
 <script setup>
     defineProps({
@@ -390,7 +390,7 @@ Props are readonly. There value cann't be change i.e. immutable.
 </template>
 ```
 
-#### Complex Object Props Example
+### Complex Object Props Example
 ```
 <script setup>
     defineProps({
@@ -407,7 +407,7 @@ Props are readonly. There value cann't be change i.e. immutable.
 </template>
 ```
 
-#### Custom Validation Props Example
+### Custom Validation Props Example
 ```
 <script setup>
     defineProps({
@@ -439,10 +439,10 @@ Props are readonly. There value cann't be change i.e. immutable.
 ## Component Event
 Component events are a way for child components to communicate with their parent components. They allow child components to emit events (custom events) that can be listened to and handled by their parent components.
 
-#### Child Component Emits an Event
+### Child Component Emits an Event
 Inside a child component, you can use the $emit method to trigger a custom event. This event can carry data that you want to send to the parent.
 
-#### Parent Component Listens to the Event
+### Parent Component Listens to the Event
 
 In the parent component's template, you can use the v-on directive (or the shorthand @) to listen for the custom event emitted by the child.
 
@@ -505,7 +505,7 @@ SlotComponent.vue
     <slot></slot>
 </template>
 ```
-#### Fallback / Default Content
+### Fallback / Default Content
 Fallback content in slots refers to the default content that is displayed when no content is provided for a particular slot. It's a way to ensure that a component still has meaningful content, even if the parent component does not pass any content to a specific slot.
 
 App.vue
@@ -534,7 +534,7 @@ FallbackComponent.vue
 </template>
 ```
 
-#### Named Slots
+### Named Slots
 A named slot is a way to assign a specific name to a slot in a component. Unlike the default slot, which is unnamed and used when no explicit name is provided. named slots allow you to have multiple slots in a component and specify where the content should be inserted based on the slot's
 name.
 
@@ -565,7 +565,7 @@ NamedSlot.vue
 </template>
 ```
 
-#### Default Slot
+### Default Slot
 A default slot captures all the content that does not have a designated name and renders it at the location where the default <slot> tag is placed within the child component.
 
 App.vue
@@ -596,14 +596,14 @@ DefaultSlot.vue
 </template>
 ```
 
-### Provide & Iniect
+## Provide & Iniect
 The provide and inject options are used for providing and injecting properties or data down the component hierarchy.
 They enable a form of dependency injection, allowing a parent component to provide data or methods that child components can then inject and use.
 
-#### Provide
+### Provide
 Provide is an option in a parent component that allows it to share data or methods with its child components. It makes properties or methods available for injection into child components.
 
-#### Inject
+### Inject
 Inject is an option in a child component that specifies which properties or methods it wants to receive from its parent component. It allows a component to inject and use
 provided data or methods.
 
@@ -646,5 +646,104 @@ StudentComponent.vue
     <h1>Name: {{ studentName }}</h1>
     <h1>Email: {{ studentEmail }}</h1>
     <h1>Roll Number: {{ studentRollNumber }}</h1>
+</template>
+```
+
+## Lifecycle Hooks
+Lifecycle hooks are special methods provided by Vue.js that allow you to execute code at different stages of a component's lifecycle. These hooks provide developers with the ability to perform actions or respond to events at specific points during the creation, updating, and destruction of a Vue component.
+
+### Mount 
+
+Mounting means when a component is being created and inserted into the DOM.
+
+### Unmount
+Unmounting means when a component is being removed from the DOM.
+
+### onBeforeMount()
+-   Registers a hook to be called right before the component is to be mounted.
+-   When this hook is called, the component has finished setting up its reactive state, but no DOM nodes have been created yet.
+-   It is about to execute its DOM render effect for the first time.
+
+### onMounted ()
+onMounted is used for executing logic or actions after a component has been mounted to the DOM. This hook is particularly useful for tasks that should occur once the
+component is ready to interact with the user, such as fetching data, setting up event listeners, or performing initial calculations.
+
+### onBeforeUpdate()
+Registers a hook to be called right before the component is about to update its DOM tree due to a reactive state change.
+This hook can be used to access the DOM state before Vue updates the DOM. It is also safe to modify component state inside this hook.
+
+### onUpdated()
+Registers a callback to be called after the component has updated its DOM tree due to a reactive state change.
+This hook is called after any DOM update of the component, which can be caused by different state changes, because multiple state changes can be batched into a single render cycle for performance reasons.
+
+### onBeforeUnmount ()
+Registers a hook to be called right before a component instance is to be unmounted.
+When this hook is called, the component instance is still fully functional.
+
+### onUnmounted ()
+Registers a callback to be called after the component has been unmounted.
+Use this hook to clean up manually created side effects such as timers, DOM event listeners or server connections.
+
+App.vue
+```
+<script setup>
+    import {ref} from 'vue';
+    import LifeCycleComponent from './components/LifeCycleComponent.vue';
+    let showHide = ref(false)
+</script>
+
+
+<template>
+    <LifeCycleComponent v-if="showHide"/>
+    <button @click="showHide=!showHide">Show/Hide</button>
+</template>
+```
+
+LifeCycleComponent.vue
+```
+<script setup>
+    import {
+        ref,
+        onBeforeMount,
+        onMounted,
+        onBeforeUpdate,
+        onUpdated,
+        onBeforeUnmount,
+        onUnmounted
+    } from 'vue';
+
+    onBeforeMount(()=>{
+        console.log('Component is about to be mounted');
+    })
+
+    onMounted(()=>{
+        console.log('Component is has been mounted');
+    })
+
+    onBeforeUpdate(()=>{
+        console.log('Component is about to update');
+    })
+
+    onUpdated(()=>{
+        console.log('Component has been Updated.');
+    })
+
+    onBeforeUnmount(()=>{
+        console.log('Component is about to unmounted');
+    })
+
+    onUnmounted(()=>{
+        console.log('Component has been unmounted');
+    })
+
+    const message = ref('Hello World');
+    const updateMessage = ()=>{
+        message.value = 'Updated Value!';
+    }
+</script>
+
+<template>
+    <p>{{message}}</p>
+    <button @:click="updateMessage">Update Message</button>
 </template>
 ```
