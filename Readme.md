@@ -581,7 +581,7 @@ App.vue
       This is example slot.
     </template>
     <template #default>
-        Default slot always come first.
+      All the content which is not in named slot goes into default slot.
       </template>
   </DefaultSlot>
 </template>
