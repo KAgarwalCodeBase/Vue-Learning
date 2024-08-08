@@ -747,3 +747,101 @@ LifeCycleComponent.vue
     <button @:click="updateMessage">Update Message</button>
 </template>
 ```
+
+
+## Watchers
+
+"watcher" allows us to reactively watch for changes in a specific property or expression and perform some custom logic when that property or expression changes. Watchers are part of Vue.js's reactivity system, which enables the framework to automatically update the DOM when the underlying data changes.
+
+
+### watch(source, callback, option)
+
+#### Note: 
+
+- Type of Source
+    - Ref
+    - Reactive Object
+    -  Array 
+    - Getter Function
+
+- The "callback" function is called whenever some data changes.
+
+- watch(source, (newValue, oldValue)=>{ })
+
+- Options support the following values.
+    - immediate
+    - deep
+    - flush
+    - onTrack/onTrigger
+
+- Here we cann't provide an specific property of object.
+We have to provide entire object, otherwise it's gonna give us error in the console.
+
+- Now if we want to get the "old" & the "new" values separately, for that we'll have to pass a getter function. Here we have to specify the actual object/state "property"
+
+#### Basic Watcher Example:
+App.vue
+```
+<script setup>
+  import BasicWatcherComponent from './components/BasicWatcherComponent.vue';
+</script>
+
+<template>
+  <h1>Basic Watcher Example</h1>
+  <BasicWatcherComponent/>
+</template>
+```
+
+BasicWatcherComponent.vue
+```
+<script setup>
+    import {reactive, ref, watch} from 'vue';
+    let message = ref('Hello World!');
+    let userInfo = reactive({username: 'Jordan'});
+    watch(() => userInfo.username, (newValue, oldValue)=>{
+        message.value = newValue.username;
+        console.log('Old Value: ', oldValue);
+        console.log('New Value: ', newValue);
+    })
+</script>
+
+<template>
+    {{ message }} <br><br>
+    <input type="text" v-model="userInfo.username" placeholder="name">
+</template>
+```
+
+#### Multiple Source Watcher Example:
+App.vue
+```
+<script setup>
+  import MultipleSourceWatcherComponent from './components/MultipleSourceWatcherComponent.vue';
+</script>
+<template>
+  <h1>Multiple Source Watcher Example</h1>
+  <MultipleSourceWatcherComponent/>
+</template>
+```
+
+MulipleSourceWatcherComponent.vue
+```
+<script setup>
+    import {ref, watch} from 'vue';
+    let username = ref('Jordan');
+    let counter = ref(0);
+    let incrementCount = ()=> counter.value++;
+    let changeName=()=> username.value!='Alex'? username.value='Alex':
+            username.value='Jordan';
+    watch([username, counter], (newValue, oldValue)=>{
+        console.log('New Value: ', newValue);
+        console.log('old Value: ', oldValue);
+    })
+</script>
+
+<template>
+    <h2>Name: {{username}}</h2>
+    <button @click="incrementCount">increment count</button>
+    <br> <br>
+    <button @click="changeName">Change Name</button>
+</template>
+```
