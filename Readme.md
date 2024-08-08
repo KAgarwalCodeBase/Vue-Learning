@@ -595,3 +595,56 @@ DefaultSlot.vue
     <slot name="example"></slot>
 </template>
 ```
+
+### Provide & Iniect
+The provide and inject options are used for providing and injecting properties or data down the component hierarchy.
+They enable a form of dependency injection, allowing a parent component to provide data or methods that child components can then inject and use.
+
+#### Provide
+Provide is an option in a parent component that allows it to share data or methods with its child components. It makes properties or methods available for injection into child components.
+
+#### Inject
+Inject is an option in a child component that specifies which properties or methods it wants to receive from its parent component. It allows a component to inject and use
+provided data or methods.
+
+App.vue
+```
+<script setup>
+  import {provide} from 'vue';
+  import SchoolComponent from './components/SchoolComponent.vue';
+  provide('studentName', 'Kaushal Agarwal');
+  provide('studentEmail', 'Kaushal@gmail.com');
+  provide('studentRollNumber', 11);
+</script>
+
+<template>
+  <SchoolComponent/>
+</template>
+```
+
+SchoolComponent.vue
+```
+<script setup>
+    import StudentComponent from './StudentComponent.vue';
+</script>
+
+<template>
+    <StudentComponent/>
+</template>
+```
+
+StudentComponent.vue
+```
+<script setup>
+    import {inject} from 'vue';
+    const studentName = inject('studentName');
+    const studentEmail = inject('studentEmail');
+    const studentRollNumber = inject('studentRollNumber'); 
+</script>
+
+<template>
+    <h1>Name: {{ studentName }}</h1>
+    <h1>Email: {{ studentEmail }}</h1>
+    <h1>Roll Number: {{ studentRollNumber }}</h1>
+</template>
+```
