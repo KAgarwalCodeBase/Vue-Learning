@@ -43,7 +43,7 @@
       This is example slot.
     </template>
     <template #default>
-        Default slot always come first.
-      </template>
+      All the content which is not in named slot goes into default slot.
+    </template>
   </DefaultSlot>
 </template>
