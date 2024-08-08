@@ -596,7 +596,7 @@ DefaultSlot.vue
 </template>
 ```
 
-## Provide & Iniect
+## Provide & Inject
 The provide and inject options are used for providing and injecting properties or data down the component hierarchy.
 They enable a form of dependency injection, allowing a parent component to provide data or methods that child components can then inject and use.
 
