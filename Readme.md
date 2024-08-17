@@ -906,6 +906,26 @@ A template ref is a way to create a reference to a child component, element, or 
 
 This allows you to access and manipulate the referenced object directly in your component's logic. Refs are commonly used to interact with child components, trigger imperative actions, or access properties and methods of DOM elements
 
+App.vue
+```
+<script setup>
+  import BasicRef from './components/BasicRef.vue';
+  import FunctionRef from './components/FunctionRef.vue';
+  import RefComponent from './components/RefComponent.vue';
+</script>
+<template>
+  <BasicRef/>
+  <hr>
+  
+  <FunctionRef/>
+  <hr>
+
+  <RefComponent/>
+</template>
+```
+
+#### Basic Ref
+BasicRef.vue
 ```
 <script setup>
     import {onMounted} from 'vue';
@@ -920,5 +940,66 @@ This allows you to access and manipulate the referenced object directly in your 
 <template>
     <h1>Basic ref example.</h1>
     <input type="text" ref="myRef">
+</template>
+```
+
+#### Function Ref
+FunctionRef.vue
+```
+<script setup>
+const myRefFun = (el)=>{
+    console.log(el.textContent);
+    el.textContent = "Text Changed";
+    el.style.color = "crimson"
+    console.log(el.textContent);
+}
+</script>
+<template>
+    <h1 :ref="myRefFun">This is initial value.</h1>
+</template>
+```
+
+#### Component Ref
+MyComponent.vue
+```
+<script setup>
+import {ref} from 'vue';
+let count = ref(10);
+let increment = () =>count.value++
+let decrement = () => count.value--
+
+/*
+    When using the <script setup>
+    It's private by default.
+    A parent referencing a child won't able to access anything.
+
+    First we have to expose all the properties and methods
+    then we'd able to use them in parent component.
+    use (defineExpose) to expose our data for parent to use.
+*/
+
+defineExpose({count, increment, decrement})
+</script>
+<template>
+    <h1>Count: {{ count }}</h1>
+    <button v-on:click="increment">Increment</button>
+    <br><br>
+    <button @:click="decrement">Decrement</button>
+
+</template>
+```
+
+RefComponent.vue
+```
+<script setup>
+import MyComponent from './MyComponent.vue';
+import { onMounted, ref } from 'vue';
+const myRef = ref(null);
+onMounted(()=>{
+    console.log(myRef.value)
+})
+</script>
+<template>
+    <MyComponent ref="myRef"/>
 </template>
 ```
