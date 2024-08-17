@@ -329,7 +329,7 @@ Two-way binding means that changes in your code automatically update what you se
 
 Props are readonly. There value cann't be change i.e. immutable.
 
-### App.vue
+`App.vue`
 ```
 <script setup>
 import { ref } from 'vue';
@@ -500,7 +500,7 @@ Inside a child component, you can use the $emit method to trigger a custom event
 
 In the parent component's template, you can use the v-on directive (or the shorthand @) to listen for the custom event emitted by the child.
 
-<i>App.vue (Parent Component)</i>
+<i>`App.vue (Parent Component)`</i>
 ```
 <script setup>
   import FormComponent from './components/FormComponent.vue';
@@ -514,7 +514,7 @@ In the parent component's template, you can use the v-on directive (or the short
 </template>
 ```
 
-<i>FormComponent.vue (Child Component)</i>
+<i>`FormComponent.vue (Child Component)`</i>
 ```
 <script setup>
     import { ref } from 'vue'; 
@@ -538,7 +538,7 @@ In the parent component's template, you can use the v-on directive (or the short
 ## Slot
 A slot is like a space in a component where you can put different things. It allow you to create reusable components that can accept different content while maintaining a consistent structure.
 
-App.vue
+`App.vue`
 ```
 <script setup>
   import SlotComponent from './components/SlotComponent.vue';
@@ -552,7 +552,7 @@ App.vue
 </template>
 ```
 
-SlotComponent.vue
+`SlotComponent.vue`
 ```
 <script setup></script>
 <template>
@@ -562,7 +562,7 @@ SlotComponent.vue
 ### Fallback / Default Content
 Fallback content in slots refers to the default content that is displayed when no content is provided for a particular slot. It's a way to ensure that a component still has meaningful content, even if the parent component does not pass any content to a specific slot.
 
-App.vue
+`App.vue`
 ```
 <script setup>
   import FallbackComponent from './components/FallbackComponent.vue';
@@ -579,7 +579,7 @@ App.vue
 </template>
 ```
 
-FallbackComponent.vue
+`FallbackComponent.vue`
 ```
 <script setup></script>
 
@@ -592,7 +592,7 @@ FallbackComponent.vue
 A named slot is a way to assign a specific name to a slot in a component. Unlike the default slot, which is unnamed and used when no explicit name is provided. named slots allow you to have multiple slots in a component and specify where the content should be inserted based on the slot's
 name.
 
-App.vue
+`App.vue`
 ```
 <script setup>
   import NamedSlot from './components/NamedSlot.vue';
@@ -610,7 +610,7 @@ App.vue
   </NamedSlot>
 </template>
 ```
-NamedSlot.vue
+`NamedSlot.vue`
 ```
 <script setup></script>
 <template>
@@ -622,7 +622,7 @@ NamedSlot.vue
 ### Default Slot
 A default slot captures all the content that does not have a designated name and renders it at the location where the default <slot> tag is placed within the child component.
 
-App.vue
+`App.vue`
 ```
 <script setup>
   import DefaultSlot from './components/DefaultSlot.vue';
@@ -640,7 +640,7 @@ App.vue
   </DefaultSlot>
 </template>
 ```
-DefaultSlot.vue
+`DefaultSlot.vue`
 ```
 <script setup>
 </script>
@@ -661,7 +661,7 @@ Provide is an option in a parent component that allows it to share data or metho
 Inject is an option in a child component that specifies which properties or methods it wants to receive from its parent component. It allows a component to inject and use
 provided data or methods.
 
-App.vue
+`App.vue`
 ```
 <script setup>
   import {provide} from 'vue';
@@ -676,7 +676,7 @@ App.vue
 </template>
 ```
 
-SchoolComponent.vue
+`SchoolComponent.vue`
 ```
 <script setup>
     import StudentComponent from './StudentComponent.vue';
@@ -687,7 +687,7 @@ SchoolComponent.vue
 </template>
 ```
 
-StudentComponent.vue
+`StudentComponent.vue`
 ```
 <script setup>
     import {inject} from 'vue';
@@ -738,7 +738,7 @@ When this hook is called, the component instance is still fully functional.
 Registers a callback to be called after the component has been unmounted.
 Use this hook to clean up manually created side effects such as timers, DOM event listeners or server connections.
 
-App.vue
+`App.vue`
 ```
 <script setup>
     import {ref} from 'vue';
@@ -753,7 +753,7 @@ App.vue
 </template>
 ```
 
-LifeCycleComponent.vue
+`LifeCycleComponent.vue`
 ```
 <script setup>
     import {
@@ -834,7 +834,7 @@ We have to provide entire object, otherwise it's gonna give us error in the cons
 - Now if we want to get the "old" & the "new" values separately, for that we'll have to pass a getter function. Here we have to specify the actual object/state "property"
 
 #### Basic Watcher Example:
-App.vue
+`App.vue`
 ```
 <script setup>
   import BasicWatcherComponent from './components/BasicWatcherComponent.vue';
@@ -846,7 +846,7 @@ App.vue
 </template>
 ```
 
-BasicWatcherComponent.vue
+`BasicWatcherComponent.vue`
 ```
 <script setup>
     import {reactive, ref, watch} from 'vue';
@@ -866,7 +866,7 @@ BasicWatcherComponent.vue
 ```
 
 #### Multiple Source Watcher Example:
-App.vue
+`App.vue`
 ```
 <script setup>
   import MultipleSourceWatcherComponent from './components/MultipleSourceWatcherComponent.vue';
@@ -877,7 +877,7 @@ App.vue
 </template>
 ```
 
-MulipleSourceWatcherComponent.vue
+`MulipleSourceWatcherComponent.vue`
 ```
 <script setup>
     import {ref, watch} from 'vue';
@@ -906,7 +906,7 @@ A template ref is a way to create a reference to a child component, element, or 
 
 This allows you to access and manipulate the referenced object directly in your component's logic. Refs are commonly used to interact with child components, trigger imperative actions, or access properties and methods of DOM elements
 
-App.vue
+`App.vue`
 ```
 <script setup>
   import BasicRef from './components/BasicRef.vue';
@@ -925,7 +925,7 @@ App.vue
 ```
 
 #### Basic Ref
-BasicRef.vue
+`BasicRef.vue`
 ```
 <script setup>
     import {onMounted} from 'vue';
@@ -944,7 +944,7 @@ BasicRef.vue
 ```
 
 #### Function Ref
-FunctionRef.vue
+`FunctionRef.vue`
 ```
 <script setup>
     const myRefFun = (el)=>{
@@ -961,7 +961,7 @@ FunctionRef.vue
 ```
 
 #### Component Ref
-MyComponent.vue
+`MyComponent.vue`
 ```
 <script setup>
     import {ref} from 'vue';
@@ -990,7 +990,7 @@ MyComponent.vue
 </template>
 ```
 
-RefComponent.vue
+`RefComponent.vue`
 ```
 <script setup>
     import MyComponent from './MyComponent.vue';
@@ -1012,7 +1012,7 @@ Async component is a feature that allows you to load a component asynchronously,
 ### defineAsyncComponent ()
 Is used to create asynchronous components. Async components are loaded and resolved asynchronously, which can be helpful for improving the initial loading performance of your application by deferring the loading of certain components until they are actually needed.
 
-RenderFriends.vue
+`RenderFriends.vue`
 ```
 <script setup>
     import {ref} from 'vue';
@@ -1024,7 +1024,7 @@ RenderFriends.vue
 </template>
 ```
 
-ToggleFriends.vue
+`ToggleFriends.vue`
 ```
 <script setup>
     // import RenderFriends from './RenderFriends.vue';
@@ -1046,3 +1046,34 @@ ToggleFriends.vue
 
 ## Composable
 A composable is a function or set of functions that encapsulate a piece of logic and can be composed together to build the functionality of a Vue component. Composables are designed to be reusable and shareable, making it easier to manage complex logic and behavior in a Vue application.
+
+### useComposable():
+It is a convention use `use` prefix in prefix of composables. Composable is a shared logic so it is in javascript file.
+
+`shared/useCounter.js`
+```
+import {ref} from 'vue';
+
+export function useCounter(initialValue=0){
+    let count = ref(initialValue);
+    const increment = ()=>count.value++
+    const decrement = ()=>count.value--
+    return {count, increment, decrement}
+}
+```
+
+`CounterComponent.vue`
+```
+<script setup>
+    import { useCounter } from '@/shared/useCounter';
+    const counter = useCounter()
+</script>
+
+
+<template>
+    <h2>Count: {{counter.count}}</h2>
+    <button @click="counter.increment">+</button>
+    <button @click="counter.decrement">-</button>
+</template>
+```
+
