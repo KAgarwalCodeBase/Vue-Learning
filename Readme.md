@@ -1005,3 +1005,44 @@ RefComponent.vue
     <MyComponent ref="myRef"/>
 </template>
 ```
+
+## Async Component
+Async component is a feature that allows you to load a component asynchronously, meaning the component is loaded and rendered only when it's needed. This is particularly useful for optimizing the initial loading time of your application, especially when dealing with large and complex components that might not be necessary on the first page load.
+
+### defineAsyncComponent ()
+Is used to create asynchronous components. Async components are loaded and resolved asynchronously, which can be helpful for improving the initial loading performance of your application by deferring the loading of certain components until they are actually needed.
+
+RenderFriends.vue
+```
+<script setup>
+    import {ref} from 'vue';
+    let friends = ref(['Spiderman', 'IronMan', 'Captain America', 'Wonder Women']);
+</script>
+
+<template>
+    <h3 v-for="(friend, ind) in friends" :key="ind">{{friend}}</h3>
+</template>
+```
+
+ToggleFriends.vue
+```
+<script setup>
+    // import RenderFriends from './RenderFriends.vue';
+    import {ref, defineAsyncComponent} from 'vue';
+    const RenderFriends = defineAsyncComponent(()=>{
+        import('./RenderFriends.vue')
+    })
+    let showFriends =  ref(false)
+    const toggleFriends = ()=>{showFriends.value=!showFriends.value}
+</script>
+
+<template>
+    <div v-if="showFriends">
+        <RenderFriends/>
+    </div>
+    <button @:click="toggleFriends">Toggle Friends</button>
+</template>
+```
+
+## Composable
+A composable is a function or set of functions that encapsulate a piece of logic and can be composed together to build the functionality of a Vue component. Composables are designed to be reusable and shareable, making it easier to manage complex logic and behavior in a Vue application.
