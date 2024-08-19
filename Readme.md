@@ -1083,7 +1083,7 @@ Vue provides a set of built-in directives such as v-if, v-for, v-model, etc. Cus
 ### How to create one?
 A custom directive is defined as an object containing lifecycle hooks similar to component hooks eg. mounted() unmounted etc.
 
-MyComponent.vue
+`MyComponent.vue`
 ```
 <script setup>
     const vFormatDiv1 = {
@@ -1132,7 +1132,7 @@ MyComponent.vue
 ## Dynamic Components
 Dynamic components refer to the ability to dynamically switch between different components based on certain conditions or user interactions. This is achieved using the component element and the is attribute.
 
-App.vue
+`App.vue`
 ```
 <script setup>
   import MainComponent from './components/MainComponent.vue';
@@ -1142,7 +1142,7 @@ App.vue
 </template>
 ```
 
-MainComponent.vue
+`MainComponent.vue`
 ```
 <script setup>
     import { ref } from 'vue';
@@ -1167,7 +1167,7 @@ MainComponent.vue
 </template>
 ```
 
-ComponentOne.vue
+`ComponentOne.vue`
 ```
 <template>
     <h1>What is HTML?</h1>
@@ -1177,7 +1177,8 @@ ComponentOne.vue
 </template>
 ```
 
-ComponentTwo.vue
+`ComponentTwo.vue
+`
 ```
 <template>
     <h1>What is css?</h1>
@@ -1187,7 +1188,8 @@ ComponentTwo.vue
 </template>
 ```
 
-ComponentThree.vue
+`ComponentThree.vue
+`
 ```
 <template>
     <h1>What is Javascript?</h1>
