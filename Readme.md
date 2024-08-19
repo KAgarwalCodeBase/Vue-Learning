@@ -1128,3 +1128,71 @@ MyComponent.vue
     <div v-format-div3>Shorthand of using custom directive.</div>
 </template>
 ```
+
+## Dynamic Components
+Dynamic components refer to the ability to dynamically switch between different components based on certain conditions or user interactions. This is achieved using the component element and the is attribute.
+
+App.vue
+```
+<script setup>
+  import MainComponent from './components/MainComponent.vue';
+</script>
+<template>
+  <MainComponent/>
+</template>
+```
+
+MainComponent.vue
+```
+<script setup>
+    import { ref } from 'vue';
+    import ComponentOne from './ComponentOne.vue';
+    import ComponentTwo from './ComponentTwo.vue';
+    import ComponentThree from './ComponentThree.vue';
+    let currentTab = ref('ComponentOne');
+    let tab = {
+        ComponentOne,
+        ComponentTwo,
+        ComponentThree
+    }
+</script>
+
+<template>
+    <button @click="currentTab='ComponentOne'">What is HTML?</button>
+    <button @click="currentTab='ComponentTwo'">What is CSS?</button>
+    <button @click="currentTab='ComponentThree'">What is Javascript?</button>
+    
+    <!-- Dynamic Component -->
+    <component :is="tab[currentTab]"/>
+</template>
+```
+
+ComponentOne.vue
+```
+<template>
+    <h1>What is HTML?</h1>
+    <p>
+        HTML (HyperText Markup Language) is the code that is used to structure a web page and its content. For example, content could be structured within a set of paragraphs, a list of bulleted points, or using images and data tables. As the title suggests, this article will give you a basic understanding of HTML and its functions.    
+    </p>
+</template>
+```
+
+ComponentTwo.vue
+```
+<template>
+    <h1>What is css?</h1>
+    <p>
+        CSS (Cascading Style Sheets) allows you to create great-looking web pages, but how does it work under the hood? This article explains what CSS is with a simple syntax example and also covers some key terms about the language.
+    </p>
+</template>
+```
+
+ComponentThree.vue
+```
+<template>
+    <h1>What is Javascript?</h1>
+    <p>
+        JavaScript is a scripting or programming language that allows you to implement complex features on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video jukeboxes, etc. — you can bet that JavaScript is probably involved. It is the third layer of the layer cake of standard web technologies, two of which (HTML and CSS) we have covered in much more detail in other parts of the Learning Area.
+    </p>
+</template>
+```
