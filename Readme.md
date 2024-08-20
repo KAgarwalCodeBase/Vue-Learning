@@ -1198,3 +1198,65 @@ Dynamic components refer to the ability to dynamically switch between different 
     </p>
 </template>
 ```
+
+## Fetching Data in Vue.
+
+### Using fetch API
+
+`GettingDataWithFetch.vue`
+```
+<script setup>
+    import {ref} from 'vue';
+    let data = ref(null);
+    const fetchData = ()=>{
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then((response)=>{
+            if(!response.ok){
+                throw Error(`Http Error: Status ${response.status}`)
+            }
+            return response.json()
+        })
+        .then((responseData)=>{
+            data.value = responseData
+        })
+        .catch((error)=>{
+            console.error(`Error Fetching Data: ${error}`)
+        })
+    }
+</script>
+
+<template>
+    <h1>(( Data From API))</h1>
+    <pre>{{ data.value}}</pre>
+    <button @click="fetchData">Fetch Data</button>
+</template>
+```
+
+`GettingDataWithAxios.vue`
+```
+<script setup>
+    import axios from 'axios';
+    import { ref } from 'vue';
+    let data = ref(null);
+    const fetchData =  async () =>{
+        try{
+            // Make a get request using axios.
+            const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+
+            // Handle the successful response
+            data.value = response.data
+        }catch(error){
+            console.error(`Error Fetching Data: ${error}`)
+        }
+    }
+</script>
+
+<template>
+    <h1>(( Using Axios ))</h1>
+    <button @click="fetchData">Fetch Data</button>
+    <div>
+        <h2>Data From API:</h2>
+        <pre>{{data}}</pre>
+    </div>
+</template>
+```
