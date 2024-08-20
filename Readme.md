@@ -1,8 +1,26 @@
 # Table of Contents
-- [Notes](#notes:)
-- [Component](#component:)
+- [Notes](#notes)
+- [Component](#component)
+- [Interpolation](#interpolation)
+- [Attribute Binding & Dynamic Attribute Binding  :attr or v-bind:attr:](#attribute-binding--dynamic-attribute-binding-attr-or-v-bindattr)
+- [Vue Style](#vue-style)
+- [Events](#events)
+- [Reactivity](#reactivity)
+- [Computed Properties](#computed-properties)
+- [Conditional Rendering](#conditional-rendering)
 - [v-model](#v-model)
-
+- [Props](#props)
+- [Component Event](#component-event)
+- [Slot](#slot)
+- [Provide & Inject](#provide--inject)
+- [Lifecycle Hooks](#lifecycle-hooks)
+- [Watchers](#watchers)
+- [Template Ref](#template-ref)
+- [Async Component](#async-component)
+- [Composable](#composable)
+- [Custom Directives](#custom-directives)
+- [Dynamic Components](#dynamic-components)
+- [Fetching Data in Vue](#fetching-data-in-vue)
 ## Notes:
 
 Write HTML is done inside the ```<template>...</template> ```tag.<br>
