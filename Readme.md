@@ -1,5 +1,6 @@
 # Table of Contents
-- [Notes] (#notes:)
+- [Notes](#notes:)
+- [Component](#component:)
 
 ## Notes:
 
