@@ -1313,3 +1313,4 @@ Dynamic components refer to the ability to dynamically switch between different 
 ## Project
 
 ### [Todolist](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-todo-list)
+### [Random Quote Generator](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-random-quote-generator)
