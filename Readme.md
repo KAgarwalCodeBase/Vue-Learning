@@ -1,7 +1,7 @@
 # Table of Contents
 - [Notes](#notes)
 - [Component](#component)
-- [Interpolation](#interpolation)
+- [Interpolation](#interpolation--)
 - [Attribute Binding & Dynamic Attribute Binding  :attr or v-bind:attr:](#attribute-binding--dynamic-attribute-binding-attr-or-v-bindattr)
 - [Vue Style](#vue-style)
 - [Events](#events)
