@@ -1,6 +1,7 @@
 # Table of Contents
 - [Notes](#notes:)
 - [Component](#component:)
+- [v-model](#v-model)
 
 ## Notes:
 
