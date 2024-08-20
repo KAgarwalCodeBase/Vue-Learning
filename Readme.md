@@ -4,7 +4,7 @@ Source [link](https://www.youtube.com/watch?v=pgWZLS75Nmo&t=17677s)
 ## Table of Contents
 - [Notes](#notes)
 - [Component](#component)
-- [Interpolation](#interpolation--)
+- [Interpolation](#interpolation)
 - [Attribute Binding & Dynamic Attribute Binding  :attr or v-bind:attr:](#attribute-binding--dynamic-attribute-binding-attr-or-v-bindattr)
 - [Vue Style](#vue-style)
 - [Events](#events)
@@ -24,6 +24,7 @@ Source [link](https://www.youtube.com/watch?v=pgWZLS75Nmo&t=17677s)
 - [Custom Directives](#custom-directives)
 - [Dynamic Components](#dynamic-components)
 - [Fetching Data in Vue](#fetching-data-in-vue)
+- [Todolist](#todolist)
 
 ## Notes:
 
@@ -48,11 +49,16 @@ Example: "HelloWorld.vue"
 
 ## [Component](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-component)
  Building blocks of Single Page Applications.
+ 
+ <sub>[back to top](#table-of-contents)</sub>
 
 ## [Interpolation {{ }}](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-interpolation):
 Dynamically Binding Data to the content of an HTML element.
 
-## [Attribute Binding & Dynamic Attribute Binding  :attr or v-bind:attr:](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-attribute-binding)
+<sub>[back to top](#table-of-contents)</sub>
+
+## [Attribute Binding & Dynamic Attribute Binding  :attr or v-bind:attr:](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-attribute-binding) 
+
 It is a way to bind HTML attributes to data in Vue Instance.
     
 example:
@@ -74,6 +80,7 @@ example:
 
 </code>
 
+<sub>[back to top](#table-of-contents)</sub>
 ## [Vue Style: ](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-style)
 
 Global Style: ```<style>...</style>```
@@ -104,6 +111,7 @@ Example:
 </style>
 ```
 
+<sub>[back to top](#table-of-contents)</sub>
 ## [Events:](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-events-reactivity)
 Two ways of using events:<br>
 - ```v-on:click="count++"<br>```
@@ -127,6 +135,7 @@ console.log('Count: ', count);
 
 ```
 
+<sub>[back to top](#table-of-contents)</sub>
 ## [Reactivity:](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-events-reactivity)
 
 Reactivity means that the framework can automatically update (UI) when the information behind it changes. It's a core concept that allow you to create dynamic and responsive applications without manually manipulating the DOM.
@@ -202,6 +211,7 @@ Reactivity means that the framework can automatically update (UI) when the infor
 ### Best Practices:
 <i>Always use .value for clarity, consistency, and alignment with Vue's documentation. This helps prevent confusion and makes your code more maintainable.</i>
 
+<sub>[back to top](#table-of-contents)</sub>
 ## [Computed Properties](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-computed-properties)
 A computed property is a special kind of variable that automatically updates itself whenever the data it depends on changes.
 
@@ -220,6 +230,7 @@ It's like a little worker that watches certain data, performs some work on it, a
 </template>
 ```
 
+<sub>[back to top](#table-of-contents)</sub>
 ## [Conditional Rendering](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-conditional-statements)
 Conditional rendering is refers to the ability to conditionally display or hide elements in the user interface based on certain condition or expressions.
 
@@ -320,7 +331,8 @@ Why :key?
 
 • Vue relies on keys to track the identity of elements, and using unique keys for each item ensures that Vue can accurately update the DOM based on changes in the list.
 
-## [v-model](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-two-way-binding)
+<sub>[back to top](#table-of-contents)</sub>
+## [v-model](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-two-way-binding) 
 v-model is a directive that provides two-way data binding on an input, textarea, or select element. It creates a connection between the data in your component and the input field, allowing changes in one to automatically update the other and vice versa.
 
 ### Two Way Binding?
@@ -349,6 +361,7 @@ Two-way binding means that changes in your code automatically update what you se
 </template>
 ```
 
+<sub>[back to top](#table-of-contents)</sub>
 ## [Props](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-props)
 
 "props" (short for properties) are a way to pass data from a parent component to a child component Props allow you to communicate between components by allowing the parent component to pass data down to its child components. This is useful for creating reusable and modular components.
@@ -515,7 +528,7 @@ let userInfo = {fullname:"Kaushal Agarwal", age: 27};
 </template>
 ```
 
-
+<sub>[back to top](#table-of-contents)</sub>
 ## [Component Event](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-component-event)
 Component events are a way for child components to communicate with their parent components. They allow child components to emit events (custom events) that can be listened to and handled by their parent components.
 
@@ -561,6 +574,7 @@ In the parent component's template, you can use the v-on directive (or the short
 </template>
 ```
 
+<sub>[back to top](#table-of-contents)</sub>
 ## [Slot](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-slot)
 A slot is like a space in a component where you can put different things. It allow you to create reusable components that can accept different content while maintaining a consistent structure.
 
@@ -676,6 +690,7 @@ A default slot captures all the content that does not have a designated name and
 </template>
 ```
 
+<sub>[back to top](#table-of-contents)</sub>
 ## [Provide & Inject](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-provide-and-inject)
 The provide and inject options are used for providing and injecting properties or data down the component hierarchy.
 They enable a form of dependency injection, allowing a parent component to provide data or methods that child components can then inject and use.
@@ -729,6 +744,7 @@ provided data or methods.
 </template>
 ```
 
+<sub>[back to top](#table-of-contents)</sub>
 ## [Lifecycle Hooks](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-life-cycle-hooks)
 Lifecycle hooks are special methods provided by Vue.js that allow you to execute code at different stages of a component's lifecycle. These hooks provide developers with the ability to perform actions or respond to events at specific points during the creation, updating, and destruction of a Vue component.
 
@@ -828,7 +844,7 @@ Use this hook to clean up manually created side effects such as timers, DOM even
 </template>
 ```
 
-
+<sub>[back to top](#table-of-contents)</sub>
 ## [Watchers](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-watchers)
 
 "watcher" allows us to reactively watch for changes in a specific property or expression and perform some custom logic when that property or expression changes. Watchers are part of Vue.js's reactivity system, which enables the framework to automatically update the DOM when the underlying data changes.
@@ -926,6 +942,7 @@ We have to provide entire object, otherwise it's gonna give us error in the cons
 </template>
 ```
 
+<sub>[back to top](#table-of-contents)</sub>
 ## [Template Ref](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-template-ref)
 
 A template ref is a way to create a reference to a child component, element, or a DOM element within a template.
@@ -1032,6 +1049,7 @@ This allows you to access and manipulate the referenced object directly in your 
 </template>
 ```
 
+<sub>[back to top](#table-of-contents)</sub>
 ## [Async Component](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-async-components)
 Async component is a feature that allows you to load a component asynchronously, meaning the component is loaded and rendered only when it's needed. This is particularly useful for optimizing the initial loading time of your application, especially when dealing with large and complex components that might not be necessary on the first page load.
 
@@ -1070,6 +1088,7 @@ Is used to create asynchronous components. Async components are loaded and resol
 </template>
 ```
 
+<sub>[back to top](#table-of-contents)</sub>
 ## [Composable](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-composable)
 A composable is a function or set of functions that encapsulate a piece of logic and can be composed together to build the functionality of a Vue component. Composables are designed to be reusable and shareable, making it easier to manage complex logic and behavior in a Vue application.
 
@@ -1103,6 +1122,7 @@ export function useCounter(initialValue=0){
 </template>
 ```
 
+<sub>[back to top](#table-of-contents)</sub>
 ## [Custom Directives](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-custom-directive)
 Vue provides a set of built-in directives such as v-if, v-for, v-model, etc. Custom directives allow you to define your own behavior that can be applied to elements in the template.
 
@@ -1155,6 +1175,7 @@ A custom directive is defined as an object containing lifecycle hooks similar to
 </template>
 ```
 
+<sub>[back to top](#table-of-contents)</sub>
 ## [Dynamic Components](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-dynamic-components)
 Dynamic components refer to the ability to dynamically switch between different components based on certain conditions or user interactions. This is achieved using the component element and the is attribute.
 
@@ -1225,6 +1246,7 @@ Dynamic components refer to the ability to dynamically switch between different 
 </template>
 ```
 
+<sub>[back to top](#table-of-contents)</sub>
 ## [Fetching Data in Vue.](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-data-fetching)
 
 ### Using fetch API
@@ -1287,6 +1309,7 @@ Dynamic components refer to the ability to dynamically switch between different 
 </template>
 ```
 
+<sub>[back to top](#table-of-contents)</sub>
 ## Project
 
-### Todolist
+### [Todolist](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-todo-list)
