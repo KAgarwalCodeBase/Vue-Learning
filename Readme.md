@@ -42,7 +42,7 @@ Example: "HelloWorld.vue"
 <i>npm run format</i></br>
 <i>npm run dev</i></br>
 
-## Component:
+## [Component](https://github.com/KAgarwalCodeBase/Vue-Learning/tree/main/vue-project-component)
  Building blocks of Single Page Applications.
 
 ## Interpolation {{ }}:
